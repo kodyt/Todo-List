@@ -1,3 +1,6 @@
+window.onload = function() {
+    localStorage.setItem("tasks-store", $('#tasks').val());
+}
 
 window.addEventListener('load', () => {
     const form = document.querySelector("#new-task-form");
@@ -5,7 +8,7 @@ window.addEventListener('load', () => {
     const list_el = document.querySelector("#tasks");
 
     form.addEventListener('submit', (e) => {
-        e.preventDefault(); //Prevents the refreshing the page
+        e.preventDefault(); //Prevents the refreshing the page with clicks
         
         const task = input.value;
 
@@ -14,14 +17,18 @@ window.addEventListener('load', () => {
             return;
         }
 
+        //Creates task to add
         const task_el = document.createElement("div");
         task_el.classList.add("task");
 
+        //Creates div for the content of the task
         const task_content_el = document.createElement("div");
         task_content_el.classList.add("content");
 
+        //Appends the content to the new task
         task_el.appendChild(task_content_el);
 
+        //Adds the input text 
         const task_input_el = document.createElement("input");
         task_input_el.classList.add("text");
         task_input_el.type = "text";
@@ -68,5 +75,7 @@ window.addEventListener('load', () => {
         task_delete_el.addEventListener('click', () => {
             list_el.removeChild(task_el);
         });
+
+        //End of function some how add to the local storage to prevent deletion upon refresh
     });
 });
