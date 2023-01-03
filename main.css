@@ -163,4 +163,18 @@ main {
     color: red;
 }
 
+/* Somehow make it so the counter stays at the bottom of the screen and follows allong with the scrolling */
+.completion-list {
+    padding: 1rem;
+}
 
+.completion-list h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--blue);
+    margin-bottom: 1rem;
+}
+
+#completed-list .completed {
+    display: flex;
+}
